@@ -1,6 +1,11 @@
-  int x = 425;
+   int x = 425;
   int y = 580;
   int d = 50;
+  int blue = #0752F0;
+  color c = color(blue);
+  
+  //need to have release
+  boolean kp = true;
   //size of dariusJr
   int sizeX = 5; //5 normal //-5000 gone
   int sizeY = 5; //5 normal //-5000 gone
@@ -37,38 +42,30 @@ void draw()
   PoliceCar auto6 = new PoliceCar(p6x-400,p6y+300);
   
   //The Controls
-  if (keyPressed==true)
+  if (keyPressed==true && kp == true)
  {
-    delay(300); //300
+    //delay(300); //300
     
    if(key=='w'||key=='W')
    {
      y=y-d;
    }
-  }
-  if (keyPressed)
-  {
+   
      if(key=='s'||key=='S')
    {
      y=y+d;
    }
-   
-  }
-  if (keyPressed)
-  {
+ 
       if(key=='a'||key=='A')
    {
      x=x-d;
    }
-   
-  }
-  if (keyPressed)
-  {
+
     if(key=='d'||key=='D')
    {
      x=x+d;
    }
-    
+    kp = false;
   }
   else
   {
@@ -108,6 +105,14 @@ void draw()
   {
    y=80; 
   }
+  color c = get(x,y);
+  println(c);
+  if(c == blue)
+  {
+  //makes something happen
+    sizeX= -5000;
+    sizeY= -5000;
+  }
   
   //movements of police
   px = px - 5;
@@ -135,21 +140,21 @@ void draw()
   
   if(p4x<=width-430)
   {
-  p4x = width*2-380;
+  p4x = width*2-370;
   }
   
   p5x = p5x - 4;
   
   if(p5x<=width-430)
   {
-   p5x = width*2-380; 
+   p5x = width*2-370; 
   }
   
   p6x = p6x - 3;
   
   if(p6x<=width-430)
   {
-   p6x = width*2-380; 
+   p6x = width*2-370; 
   }
   
 //DariusJr
@@ -228,6 +233,11 @@ void Back()
   Lil pad23 = new Lil(575,425);
   
 }
+void keyReleased()
+{
+  kp = true;
+}
+ 
 
 void grid()
 {
