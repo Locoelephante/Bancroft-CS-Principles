@@ -1,9 +1,9 @@
-   int x = 425;
+  int tt = 0;
+  int x = 425;
   int y = 580;
   int d = 50;
   int blue = #0752F0;
   color c = color(blue);
-  
   //need to have release
   boolean kp = true;
   //size of dariusJr
@@ -27,6 +27,7 @@ void setup()
 {
   size(800,600);
   background(255);
+  tt = 1;
 }
 
 void draw()
@@ -106,7 +107,6 @@ void draw()
    y=80; 
   }
   color c = get(x,y);
-  println(c);
   if(c == blue)
   {
   //makes something happen
@@ -155,11 +155,23 @@ void draw()
   if(p6x<=width-430)
   {
    p6x = width*2-370; 
+  } 
+  if(tt == 1)
+  {
+  fill(0);
+  textSize(15);
+  text(second(),430,25);
+  text("Time",355,25);
+  text(":",425,25);
+  text(minute(),405,25);
   }
+  else
+  {  
   
-//DariusJr
+  }
+
+    //DariusJr
   DariusJr(x,y);
-  
 }
 
 void Back()
