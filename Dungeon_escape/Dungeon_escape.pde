@@ -1,7 +1,8 @@
-  int tt = 0;
+ int tt = 0;
   int x = 425;
   int y = 580;
   int d = 50;
+  //color dimentions
   int blue = #0752F0;
   color c = color(blue);
   //need to have release
@@ -9,6 +10,8 @@
   //size of dariusJr
   int sizeX = 5; //5 normal //-5000 gone
   int sizeY = 5; //5 normal //-5000 gone
+  //coin terms
+  int cx = 425;
   //integers for police
   int px  = 775;
   int py = 75;
@@ -32,9 +35,17 @@ void setup()
 
 void draw()
 {
+  int m = minute();
+  int s = second();
   stroke(0);
   strokeWeight(1);
   Back();
+  Coin coin1 = new Coin(cx-50,p4y);
+  Coin coin2 = new Coin(cx,p4y);
+  Coin coin3 = new Coin(cx-50,p5y+200);
+  Coin coin4 = new Coin(cx,p5y+200);
+  Coin coin5 = new Coin(cx-50,p6y+300);
+  Coin coin6 = new Coin(cx,p6y+300);
   PoliceCar auto1 = new PoliceCar(px,py);
   PoliceCar auto2 = new PoliceCar(p2x,p2y+200);
   PoliceCar auto3 = new PoliceCar(p3x,p3y+300);
@@ -156,17 +167,12 @@ void draw()
   {
    p6x = width*2-370; 
   } 
+  
   if(tt == 1)
   {
   fill(0);
   textSize(15);
-  text(second(),430,25);
-  text("Time",355,25);
-  text(":",425,25);
-  text(minute(),405,25);
-  }
-  else
-  {  
+  text("Time" + ":  " + m + ":" + s,355,25);
   
   }
 
