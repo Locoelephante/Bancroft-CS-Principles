@@ -1,4 +1,9 @@
- int tt = 0;
+   //speed for police
+  int speed = 5;
+  //score and time
+  float time = millis();
+  int score = 0;
+  // global
   int x = 425;
   int y = 580;
   int d = 50;
@@ -34,7 +39,7 @@ void setup()
 
 void draw()
 {
-  float time = 1;
+  float time = millis();
   stroke(0);
   strokeWeight(1);
   Back();
@@ -101,7 +106,8 @@ void draw()
   {
     d=d;
   }
-  
+  fill(0);
+  text("Score:   " + score, 330,40);
   //The next peices are for the bondaries of DariusJr
    if(y>=height) 
   {
@@ -115,14 +121,18 @@ void draw()
   {
     x=775;
   }
+  // portal things
   if((x>=width-750 && y<=height-550) && (x<=width-650 && y<=height-550))
   {
    y=580; 
+   score = score + 10;
   }
  if((x>=width-150 && y<=height-550) && (x<=width-50 && y<=height-550))
   {
    y=580; 
+   score = score + 10;
   }
+  // other
  if((x>=width-650 && y<=height-550) && (x<=width-150 && y<=height-550))
   {
    y=80; 
@@ -143,51 +153,54 @@ void draw()
   }
   
   //movements of police
-  px = px - 7;
+  px = px - speed-2;
   
   if(px<=width-830)
   {
    px = width + 30; 
   }
   
-  p2x = p2x - 6;
+  p2x = p2x - speed-1;
   
   if(p2x<=width-830)
   {
    p2x = width + 30; 
   }
   
-  p3x = p3x - 5;
+  p3x = p3x - speed;
   
   if(p3x<=width-830)
   {
    p3x = width + 30; 
   }
   
-    p4x = p4x - 7;
+    p4x = p4x - speed-2;
   
   if(p4x<=width-430)
   {
   p4x = width*2-370;
   }
   
-  p5x = p5x - 6;
+  p5x = p5x - speed-1;
   
   if(p5x<=width-430)
   {
    p5x = width*2-370; 
   }
   
-  p6x = p6x - 5;
+  p6x = p6x - speed;
   
   if(p6x<=width-430)
   {
    p6x = width*2-370; 
   } 
+// coin
+cx=cx;
 
   fill(0);
   textSize(15);
-  text("Time" + ":    " + time,355,25);
+  text("Time" + ":   " + time ,330,25);
+  
   
     //DariusJr
   DariusJr(x,y);
@@ -280,9 +293,9 @@ void grid()
   line(200,0,200,600);
   line(250,0,250,600);
   line(300,0,300,600);
-  line(350,0,350,600);
-  line(400,0,400,600);
-  line(450,0,450,600);
+  line(350,50,350,600);
+  line(400,50,400,600);
+  line(450,50,450,600);
   line(500,0,500,600);
   line(550,0,550,600);
   line(600,0,600,600);
