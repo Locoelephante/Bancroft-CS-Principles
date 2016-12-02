@@ -30,22 +30,20 @@ void setup()
 {
   size(800,600);
   background(255);
-  tt = 1;
 }
 
 void draw()
 {
-  int m = minute();
-  int s = second();
+  float time = 1;
   stroke(0);
   strokeWeight(1);
   Back();
   Coin coin1 = new Coin(cx-50,p4y);
   Coin coin2 = new Coin(cx,p4y);
-  Coin coin3 = new Coin(cx-50,p5y+200);
-  Coin coin4 = new Coin(cx,p5y+200);
-  Coin coin5 = new Coin(cx-50,p6y+300);
-  Coin coin6 = new Coin(cx,p6y+300);
+  Coin coin3 = new Coin(cx-300,p5y+200);
+  Coin coin4 = new Coin(cx+300,p5y+200);
+  Coin coin5 = new Coin(cx-250,p6y+300);
+  Coin coin6 = new Coin(cx+250,p6y+300);
   PoliceCar auto1 = new PoliceCar(px,py);
   PoliceCar auto2 = new PoliceCar(p2x,p2y+200);
   PoliceCar auto3 = new PoliceCar(p3x,p3y+300);
@@ -56,8 +54,28 @@ void draw()
   //The Controls
   if (keyPressed==true && kp == true)
  {
-    //delay(300); //300
-    
+   
+   if(keyCode==UP)
+   {
+     y=y-d;
+   }
+   
+     if(keyCode==DOWN)
+   {
+     y=y+d;
+   }
+ 
+      if(keyCode==LEFT)
+   {
+     x=x-d;
+   }
+
+    if(keyCode==RIGHT)
+   {
+     x=x+d;
+   }
+   // or you can use w a s  d
+   /** 
    if(key=='w'||key=='W')
    {
      y=y-d;
@@ -76,7 +94,7 @@ void draw()
     if(key=='d'||key=='D')
    {
      x=x+d;
-   }
+   }*/
     kp = false;
   }
   else
@@ -120,62 +138,57 @@ void draw()
   color c = get(x,y);
   if(c == blue)
   {
-  //makes something happen
     sizeX= -5000;
     sizeY= -5000;
   }
   
   //movements of police
-  px = px - 5;
+  px = px - 7;
   
   if(px<=width-830)
   {
    px = width + 30; 
   }
   
-  p2x = p2x - 4;
+  p2x = p2x - 6;
   
   if(p2x<=width-830)
   {
    p2x = width + 30; 
   }
   
-  p3x = p3x - 3;
+  p3x = p3x - 5;
   
   if(p3x<=width-830)
   {
    p3x = width + 30; 
   }
   
-    p4x = p4x - 5;
+    p4x = p4x - 7;
   
   if(p4x<=width-430)
   {
   p4x = width*2-370;
   }
   
-  p5x = p5x - 4;
+  p5x = p5x - 6;
   
   if(p5x<=width-430)
   {
    p5x = width*2-370; 
   }
   
-  p6x = p6x - 3;
+  p6x = p6x - 5;
   
   if(p6x<=width-430)
   {
    p6x = width*2-370; 
   } 
-  
-  if(tt == 1)
-  {
+
   fill(0);
   textSize(15);
-  text("Time" + ":  " + m + ":" + s,355,25);
+  text("Time" + ":    " + time,355,25);
   
-  }
-
     //DariusJr
   DariusJr(x,y);
 }
