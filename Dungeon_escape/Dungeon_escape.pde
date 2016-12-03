@@ -1,5 +1,5 @@
-   //speed for police
-  int speed = 5;
+    //speed for police
+  int speed = 6;
   //score and time
   float time = millis();
   int score = 0;
@@ -95,7 +95,6 @@ void draw()
    {
      x=x-d;
    }
-
     if(key=='d'||key=='D')
    {
      x=x+d;
@@ -151,7 +150,7 @@ void draw()
     sizeX= -5000;
     sizeY= -5000;
   }
-  
+ 
   //movements of police
   px = px - speed-2;
   
@@ -167,7 +166,7 @@ void draw()
    p2x = width + 30; 
   }
   
-  p3x = p3x - speed;
+  p3x = p3x - speed-2;
   
   if(p3x<=width-830)
   {
@@ -188,7 +187,7 @@ void draw()
    p5x = width*2-370; 
   }
   
-  p6x = p6x - speed;
+  p6x = p6x - speed-2;
   
   if(p6x<=width-430)
   {
@@ -200,8 +199,28 @@ cx=cx;
   fill(0);
   textSize(15);
   text("Time" + ":   " + time ,330,25);
-  
-  
+  // secret button
+  if(keyPressed=true)
+  {
+   if(key == 'M')
+   {
+     score=1001101;
+     sizeX = 5;
+     sizeY = 5;
+   }
+   if(key == 'D')
+   {
+     score=1000100;
+     sizeX = 5;
+     sizeY = 5;
+   }
+   if(key == 'O')
+   {
+     score=1001111;
+     sizeX = 5;
+     sizeY = 5;
+   }
+  }
     //DariusJr
   DariusJr(x,y);
 }
