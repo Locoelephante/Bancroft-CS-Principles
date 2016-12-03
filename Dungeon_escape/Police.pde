@@ -6,7 +6,7 @@ public class PoliceCar
   {
     fill(255,0,0);
     arc(x1,y1,50,50,PI,TWO_PI,PIE);
-    fill(0,0,255);
+    fill(#0752F0);
     arc(x1,y1,50,50,0,PI,PIE);
   }
 }
