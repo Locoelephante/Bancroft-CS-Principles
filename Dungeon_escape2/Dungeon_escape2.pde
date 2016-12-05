@@ -60,7 +60,7 @@ void draw()
   begin();
   if(keyPressed|| ss == true)
   {
-    ss = false;
+    //ss = false;
     if(key == 'i'||key == 's')
     {
       Inst();
