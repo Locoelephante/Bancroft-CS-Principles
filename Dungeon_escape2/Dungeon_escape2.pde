@@ -57,6 +57,7 @@ void setup()
 
 void draw()
 {
+  
   float time = millis();
   stroke(0);
   strokeWeight(1);
@@ -159,26 +160,32 @@ void draw()
   if((x>=width-750 && y<=height-550) && (x<=width-650 && y<=height-550))
   {
    y=580; 
-   score = score + 10;
+   score = score + 5;
    cp = true;
    cp2 = true;
    cp3 = true;
    cp4 = true;
    cp5 = true;
    cp6 = true;
+   if(speed<8)
+   {
    speed = speed + 1;
+   }
   }
  if((x>=width-150 && y<=height-550) && (x<=width-50 && y<=height-550))
   {
    y=580; 
-   score = score + 10;
+   score = score + 5;
    cp = true;
    cp2 = true;
    cp3 = true;
    cp4 = true;
    cp5 = true;
    cp6 = true;
+   if(speed<8)
+   {
    speed = speed + 1;
+   }
   }
   // other
  if((x>=width-650 && y<=height-550) && (x<=width-150 && y<=height-550))
@@ -202,37 +209,37 @@ void draw()
   color c = get(x,y);
   if(c == coin)
   {
-    score = score + 15;
+    score = score + 10;
     cp = false;
   }
   color c2 = get(x,y);
   if(c2 == coin2)
   {
-    score = score + 15;
+    score = score + 10;
     cp2 = false;
   }
   color c3 = get(x,y);
   if(c3 == coin3)
   {
-    score = score + 15;
+    score = score + 10;
     cp3 = false;
   }
   color c4 = get(x,y);
   if(c4 == coin4)
   {
-    score = score + 15;
+    score = score + 10;
     cp4 = false;
   }
   color c5 = get(x,y);
   if(c5 == coin5)
   {
-    score = score + 15;
+    score = score + 10;
     cp5 = false;
   }
   color c6 = get(x,y);
   if(c6 == coin6)
   {
-    score = score + 15;
+    score = score + 10;
     cp6 = false;
   }
  
@@ -284,7 +291,14 @@ cx=cx;
   fill(0);
   textSize(15);
   text("Time" + ":   " + time ,330,15);
+  if(speed<8)
+  {
   text("Round:   " + speed, 330,30);
+  }
+  else
+  {
+   text("Round:   " + "∞ MODE", 330,30); 
+  }
   text("Score:   " + score, 330,45);
   // secret button
   if(keyPressed=true)
@@ -310,6 +324,10 @@ cx=cx;
   }
     //DariusJr
   DariusJr(x,y);
+  if(sizeX<5 && sizeY<5)
+    {
+      end();
+    }
    }
 
 void Back()
@@ -441,3 +459,32 @@ void DariusJr(int x, int y)
     fill(#FF8408); //orange
     ellipse(x,y,sizeX+2,sizeY+2);
   }
+  void begin()
+  {
+    
+  }
+  
+ void end()
+ {
+   background(0);
+   fill(255);
+   textSize(72);
+   text("You are Captured!",100,300);
+   fill(255);
+   ellipse(400,480,50,50);
+   fill(#FF8408); //orange
+    strokeWeight(1);
+    ellipse(400,480,5+15,5+20);
+    fill(#DBA773); //skin
+    ellipse(400,480-15,5+10,5+10);
+    ellipse(400-14,480,5+5,5);
+    ellipse(400+14,480,5+5,5);
+    fill(0); // black
+    ellipse(400-5,480+14,5,5+5);
+    ellipse(400+5,480+14,5,5+5);
+    fill(0); // black
+    rect(400-7.5,480-17.5,5+10,5);
+    ellipse(400,480,5+5,5+5);
+    fill(#FF8408); //orange
+    ellipse(400,480,5+2,5+2);
+ }
