@@ -1,7 +1,6 @@
     //speed for police
   int speed = 1;
   //score and time
-  float time = millis();
   int score = 0;
   // global
   int x = 425;
@@ -48,6 +47,7 @@
   int p5y = 75;
   int p6x = 775;
   int p6y = 75;
+  boolean ss = false;
   
 void setup()
 {
@@ -57,6 +57,17 @@ void setup()
 
 void draw()
 {
+  begin();
+  if(keyPressed|| ss == true)
+  {
+    ss = false;
+    if(key == 'i'||key == 's')
+    {
+      Inst();
+    }
+    if(key == 's'||key == 'S' || ss == true)
+    {
+      ss = true;
   float time = millis();
   stroke(0);
   strokeWeight(1);
@@ -289,16 +300,15 @@ cx=cx;
 
   fill(0);
   textSize(15);
-  text("Time" + ":   " + time ,330,15);
   if(speed<8)
   {
-  text("Round:   " + speed, 330,30);
+  text("Round:   " + speed, 330,20);
   }
   else
   {
-   text("Round:   " + "∞ MODE", 330,30); 
+   text("Round:   " + "∞ MODE", 330,20); 
   }
-  text("Score:   " + score, 330,45);
+  text("Score:   " + score, 330,40);
   // secret button
   if(keyPressed=true)
   {
@@ -327,9 +337,9 @@ cx=cx;
     {
       end();
     }
-    /**if(keyPressed)
+    if(keyPressed)
     {
-    if(key== "r" || key == "R")
+    if(key == 'r')
     {
       sizeX = 5;
       sizeY = 5;
@@ -337,10 +347,17 @@ cx=cx;
       y=580;
       score = 0;
       speed = 1;
+      ss = false;
+      cp = true;
+      cp2 = true;
+      cp3 = true;
+      cp4 = true;
+      cp5 = true;
+      cp6 = true;
     }
     }
-    */
-    //begin();
+    }
+   }
    }
 
 void Back()
@@ -416,6 +433,7 @@ void Back()
 }
 void keyReleased()
 {
+  ss = true;
   kp = true;
 }
  
@@ -545,11 +563,14 @@ void DariusJr(int x, int y)
   fill(255);
   rect(110,130,600,100);
   rect(175,330,450,100);
+  rect(105,490,600,80);
   fill(0);
   textSize(72);
   text("Dungeon Escape",120,200);
   textSize(32);
-  text("Start = key s || key S",240,390);
+  text("Start = key s or key S",240,390);
+  textSize(32);
+  text("Instructions = hold key i or key I",155,540); 
   }
   
  void end()
@@ -558,6 +579,8 @@ void DariusJr(int x, int y)
    fill(255);
    textSize(72);
    text("You are Captured!",100,300);
+   textSize(32);
+   text("To Restart Press the lowercase r",150,400);
    fill(255);
    ellipse(400,480,50,50);
    fill(#FF8408); //orange
@@ -575,4 +598,8 @@ void DariusJr(int x, int y)
     ellipse(400,480,5+5,5+5);
     fill(#FF8408); //orange
     ellipse(400,480,5+2,5+2);
+ }
+ void Inst()
+ {
+   background(255);
  }
