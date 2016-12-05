@@ -327,6 +327,19 @@ cx=cx;
     {
       end();
     }
+    /**if(keyPressed)
+    {
+    if(key== "r" || key == "R")
+    {
+      sizeX = 5;
+      sizeY = 5;
+      x=425;
+      y=580;
+      score = 0;
+      speed = 1;
+    }
+    }
+    */
     //begin();
    }
 
