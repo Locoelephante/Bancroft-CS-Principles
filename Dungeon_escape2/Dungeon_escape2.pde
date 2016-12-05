@@ -57,7 +57,6 @@ void setup()
 
 void draw()
 {
-  
   float time = millis();
   stroke(0);
   strokeWeight(1);
@@ -328,6 +327,7 @@ cx=cx;
     {
       end();
     }
+    //begin();
    }
 
 void Back()
@@ -462,6 +462,81 @@ void DariusJr(int x, int y)
   void begin()
   {
     
+  stroke(0);
+  fill(#069816); //green back piece
+  rect(0,0,50,50);
+  rect(150,0,500,50);
+  rect(750,0,50,50);
+  fill(#95FBFF); //portal
+  rect(50,0,100,50);
+  rect(650,0,100,50);
+  ellipse(75,25,50,50);
+  ellipse(75,25,30,30);
+  ellipse(75,25,10,10);
+  ellipse(125,25,50,50);
+  ellipse(125,25,30,30);
+  ellipse(125,25,10,10);
+  ellipse(675,25,50,50);
+  ellipse(675,25,30,30);
+  ellipse(675,25,10,10);
+  ellipse(725,25,50,50);
+  ellipse(725,25,30,30);
+  ellipse(725,25,10,10);
+  fill(#6A6A6A);//grey
+  rect(0,50,800,50);
+  rect(0,250,800,50);
+  rect(0,350,800,50);
+  fill(#6FFA51); //light green
+  rect(0,200,800,50);
+  rect(0,300,800,50);
+  rect(0,500,800,100);
+  
+  grid();
+  stroke(7,82,240);
+  fill(#0752F0);//lake
+  rect(0,100,800,100); 
+  rect(0,400,800,100);
+  fill(#0752F0);//lake
+  rect(0,500,150,50);
+  rect(600,500,150,50);
+  rect(50,300,100,50);
+  rect(650,300,100,50);
+  rect(0,200,150,50);
+  rect(650,200,100,50);
+  rect(300,200,200,50);
+  stroke(0);
+  //lillypads
+  Lil pad1 = new Lil(75,525);
+  Lil pad2 = new Lil(125,525);
+  Lil pad3 = new Lil(75,475);
+  Lil pad4 = new Lil(75,425);
+  Lil pad5 = new Lil(775,425);
+  Lil pad6 = new Lil(775,475);
+  Lil pad7 = new Lil(775,125);
+  Lil pad8 = new Lil(775,175);
+  Lil pad9 = new Lil(425,475);
+  Lil pad10 = new Lil(425,425);
+  Lil pad11 = new Lil(275,425);
+  Lil pad12 = new Lil(275,475);
+  Lil pad13 = new Lil(375,125);
+  Lil pad14 = new Lil(425,125);
+  Lil pad15 = new Lil(275,125);
+  Lil pad16 = new Lil(275,175);
+  Lil pad17 = new Lil(525,175);
+  Lil pad18 = new Lil(525,125);
+  Lil pad19 = new Lil(75,225);
+  Lil pad20 = new Lil(175,125);
+  Lil pad21 = new Lil(625,125);
+  Lil pad22 = new Lil(625,425);
+  Lil pad23 = new Lil(575,425);
+  fill(255);
+  rect(110,130,600,100);
+  rect(175,330,450,100);
+  fill(0);
+  textSize(72);
+  text("Dungeon Escape",120,200);
+  textSize(32);
+  text("Start = key s || key S",240,390);
   }
   
  void end()
