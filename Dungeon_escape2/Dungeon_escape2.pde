@@ -1,5 +1,5 @@
     //speed for police
-  int speed = 6;
+  int speed = 1;
   //score and time
   float time = millis();
   int score = 0;
@@ -142,8 +142,6 @@ void draw()
   {
     d=d;
   }
-  fill(0);
-  text("Score:   " + score, 330,40);
   //The next peices are for the bondaries of DariusJr
    if(y>=height) 
   {
@@ -168,6 +166,7 @@ void draw()
    cp4 = true;
    cp5 = true;
    cp6 = true;
+   speed = speed + 1;
   }
  if((x>=width-150 && y<=height-550) && (x<=width-50 && y<=height-550))
   {
@@ -179,6 +178,7 @@ void draw()
    cp4 = true;
    cp5 = true;
    cp6 = true;
+   speed = speed + 1;
   }
   // other
  if((x>=width-650 && y<=height-550) && (x<=width-150 && y<=height-550))
@@ -283,7 +283,9 @@ cx=cx;
 
   fill(0);
   textSize(15);
-  text("Time" + ":   " + time ,330,25);
+  text("Time" + ":   " + time ,330,15);
+  text("Round:   " + speed, 330,30);
+  text("Score:   " + score, 330,45);
   // secret button
   if(keyPressed=true)
   {
