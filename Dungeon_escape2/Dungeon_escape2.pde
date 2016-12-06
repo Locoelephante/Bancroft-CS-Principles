@@ -1,4 +1,4 @@
-     //speed for police
+    //speed for police
   int speed = 1;
   //score and time
   int score = 0;
@@ -48,6 +48,7 @@
   int p6x = 775;
   int p6y = 75;
   boolean ss = false;
+  boolean YY = false;
   
 void setup()
 {
@@ -60,10 +61,9 @@ void draw()
   begin();
   if(keyPressed|| ss == true)
   {
-    //ss = false;
     if(key == 'i'||key == 'I')
     {
-      Inst();
+     Inst(); 
     }
     if(key == 's'||key == 'S' || ss == true)
     {
@@ -221,6 +221,11 @@ void draw()
   {
     score = score + 10;
     cp = false;
+      //// Create and start the sine oscillator.
+      //pulse = new Pulse(this);
+    
+      ////Start the Pulse Oscillator. 
+      //pulse.play();
   }
   color c2 = get(x,y);
   if(c2 == coin2)
@@ -314,19 +319,24 @@ cx=cx;
   {
    if(key == 'M')
    {
-     score=1001101;
+     score= 1101101;
      sizeX = 5;
      sizeY = 5;
    }
    if(key == 'D')
    {
-     score=1000100;
+     score= 1100100;
      sizeX = 5;
      sizeY = 5;
    }
    if(key == 'O')
    {
-     score=1001111;
+     score=1101111;
+     sizeX = 5;
+     sizeY = 5;
+   }
+   if(key == 'X')
+   {
      sizeX = 5;
      sizeY = 5;
    }
@@ -354,7 +364,19 @@ cx=cx;
       cp4 = true;
       cp5 = true;
       cp6 = true;
+      YY = false;
     }
+    }
+    if(keyPressed)
+    {
+      if(key == 'y'||key == 'Y'|| YY==true)
+      {
+        DariusJr(x,y-50);
+        DariusJr(x-50,y);
+        DariusJr(x+50,y);
+        DariusJr(x,y+50);
+        YY=true;
+      }
     }
     }
    }
@@ -562,15 +584,15 @@ void DariusJr(int x, int y)
   Lil pad23 = new Lil(575,425);
   fill(255);
   rect(110,130,600,100);
-  rect(175,330,450,100);
-  rect(155,490,510,80);
+  rect(175,260,450,100);
+  rect(155,390,510,80);
   fill(0);
   textSize(72);
   text("Dungeon Escape",120,200);
   textSize(32);
-  text("Start = Press any Key",230,390);
+  text("Start = Press any Key",230,320);
   textSize(32);
-  text("Instructions = hold the I key",185,540); 
+  text("Instructions = hold the I key",185,440); 
   }
   
  void end()
@@ -602,4 +624,14 @@ void DariusJr(int x, int y)
  void Inst()
  {
    background(255);
+   textSize(62);
+   text("Instructions",200,100);
+   textSize(20);
+   text("Use the Arrow Keys to Move",100,175);
+   //arrow key picture
+   
+   text("Do Not Get Hit by the Police",100,250);
+   text("Or",100,325);
+   text("The Water",100,400);
+   text("There are Limitations to the Places you can Go",100,475); 
  }
