@@ -623,15 +623,34 @@ void DariusJr(int x, int y)
  }
  void Inst()
  {
+   fill(0);
    background(255);
    textSize(62);
    text("Instructions",200,100);
    textSize(20);
    text("Use the Arrow Keys to Move",100,175);
    //arrow key picture
-   
+   /**beginShape();
+   vertex();
+   endShape();*/
    text("Do Not Get Hit by the Police",100,250);
+   fill(255,0,0);
+    arc(425,240,50,50,PI,TWO_PI,PIE);
+    fill(#0752F0);
+    arc(425,240,50,50,0,PI,PIE);
+    fill(0);
    text("Or",100,325);
    text("The Water",100,400);
+   fill(#0752F0);
+   rect(225,375,50,50);
+   fill(0);
    text("There are Limitations to the Places you can Go",100,475); 
+   text("(You can Go on Lillypads and Through Portals)",100,550);
+   fill(#24672D);
+   arc(600,550,50,50,0-QUARTER_PI,PI+QUARTER_PI,PIE);
+   fill(#95FBFF);
+   rect(650,525,50,50);
+  ellipse(675,550,50,50);
+  ellipse(675,550,30,30);
+  ellipse(675,550,10,10);
  }
