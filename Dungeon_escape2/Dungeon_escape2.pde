@@ -1,4 +1,4 @@
-    //speed for police
+     //speed for police
   int speed = 1;
   //score and time
   int score = 0;
@@ -61,7 +61,7 @@ void draw()
   if(keyPressed|| ss == true)
   {
     //ss = false;
-    if(key == 'i'||key == 's')
+    if(key == 'i'||key == 'I')
     {
       Inst();
     }
@@ -339,7 +339,7 @@ cx=cx;
     }
     if(keyPressed)
     {
-    if(key == 'r')
+    if(key == ' ')
     {
       sizeX = 5;
       sizeY = 5;
@@ -563,14 +563,14 @@ void DariusJr(int x, int y)
   fill(255);
   rect(110,130,600,100);
   rect(175,330,450,100);
-  rect(105,490,600,80);
+  rect(155,490,510,80);
   fill(0);
   textSize(72);
   text("Dungeon Escape",120,200);
   textSize(32);
-  text("Start = key s or key S",240,390);
+  text("Start = Press any Key",230,390);
   textSize(32);
-  text("Instructions = hold key i or key I",155,540); 
+  text("Instructions = hold the I key",185,540); 
   }
   
  void end()
@@ -580,7 +580,7 @@ void DariusJr(int x, int y)
    textSize(72);
    text("You are Captured!",100,300);
    textSize(32);
-   text("To Restart Press the lowercase r",150,400);
+   text("To Restart Press the Space Bar",150,400);
    fill(255);
    ellipse(400,480,50,50);
    fill(#FF8408); //orange
