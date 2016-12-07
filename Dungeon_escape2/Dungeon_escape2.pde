@@ -1,7 +1,7 @@
-    //speed for police
+   //speed for police
   int speed = 1;
   //score and time
-  int score = 0;
+  int score = 5;
   // global
   int x = 425;
   int y = 580;
@@ -107,7 +107,6 @@ void draw()
   //The Controls
   if (keyPressed==true && kp == true)
  {
-   
    if(keyCode==UP)
    {
      y=y-d;
@@ -127,26 +126,6 @@ void draw()
    {
      x=x+d;
    }
-   // or you can use w a s  d
-   /** 
-   if(key=='w'||key=='W')
-   {
-     y=y-d;
-   }
-   
-     if(key=='s'||key=='S')
-   {
-     y=y+d;
-   }
- 
-      if(key=='a'||key=='A')
-   {
-     x=x-d;
-   }
-    if(key=='d'||key=='D')
-   {
-     x=x+d;
-   }*/
     kp = false;
   }
   else
@@ -335,14 +314,15 @@ cx=cx;
      sizeX = 5;
      sizeY = 5;
    }
-   if(key == 'X')
-   {
-     sizeX = 5;
-     sizeY = 5;
-   }
-  }
     //DariusJr
   DariusJr(x,y);
+  if(keyPressed)
+  {
+   if(key == 'i'||key == 'I')
+    {
+     Inst(); 
+    } 
+  }
   if(sizeX<5 && sizeY<5)
     {
       end();
@@ -369,8 +349,12 @@ cx=cx;
     }
     if(keyPressed)
     {
-      if(key == 'y'||key == 'Y'|| YY==true)
+      
+      if(key == '§'||YY==true)
       {
+        //The Thomas H. Imput
+        sizeX = 5;
+        sizeY = 5;
         DariusJr(x,y-50);
         DariusJr(x-50,y);
         DariusJr(x+50,y);
@@ -379,7 +363,8 @@ cx=cx;
       }
     }
     }
-   }
+    }
+    }
    }
 
 void Back()
@@ -496,6 +481,7 @@ void grid()
 }
 void DariusJr(int x, int y)
   {
+    //aka Tanuj S.
     fill(#FF8408); //orange
     strokeWeight(1);
     ellipse(x,y,sizeX+15,sizeY+20);
@@ -623,21 +609,25 @@ void DariusJr(int x, int y)
  }
  void Inst()
  {
+   int r = 400;
+   int n = 140;
    fill(0);
    background(255);
    textSize(62);
    text("Instructions",200,100);
    textSize(20);
+   text("(Press any Key to Escape)",500,137.5);
    text("Use the Arrow Keys to Move",100,175);
    //arrow key picture
-   /**beginShape();
-   vertex();
-   endShape();*/
+   triangle(r+20,n+0,r+10,n+10,r+30,n+10);
+   triangle(r+40,n+20,r+50,n+30,r+40,n+40);
+   triangle(r+30,n+50,r+20,n+60,r+10,n+50);
+   triangle(r+0,n+40,r-10,n+30,r+0,n+20);
    text("Do Not Get Hit by the Police",100,250);
    fill(255,0,0);
-    arc(425,240,50,50,PI,TWO_PI,PIE);
+    arc(425,245,50,50,PI,TWO_PI,PIE);
     fill(#0752F0);
-    arc(425,240,50,50,0,PI,PIE);
+    arc(425,245,50,50,0,PI,PIE);
     fill(0);
    text("Or",100,325);
    text("The Water",100,400);
@@ -645,12 +635,13 @@ void DariusJr(int x, int y)
    rect(225,375,50,50);
    fill(0);
    text("There are Limitations to the Places you can Go",100,475); 
+   text("Press the Spacebar to Head to the Main Menu",100,512.5);
    text("(You can Go on Lillypads and Through Portals)",100,550);
    fill(#24672D);
-   arc(600,550,50,50,0-QUARTER_PI,PI+QUARTER_PI,PIE);
+   arc(600,500,50,50,0-QUARTER_PI,PI+QUARTER_PI,PIE);
    fill(#95FBFF);
-   rect(650,525,50,50);
-  ellipse(675,550,50,50);
-  ellipse(675,550,30,30);
-  ellipse(675,550,10,10);
+   rect(650,475,50,50);
+  ellipse(675,500,50,50);
+  ellipse(675,500,30,30);
+  ellipse(675,500,10,10);
  }
