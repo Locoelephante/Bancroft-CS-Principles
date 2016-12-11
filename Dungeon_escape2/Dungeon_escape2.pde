@@ -1,12 +1,15 @@
-   //speed for police
+  int Y = 275;
+  //speed for police
   int speed = 1;
   //score and time
-  int score = 5;
+  int score = 0;
   // global
   int x = 425;
   int y = 580;
   int d = 50;
   //color dimentions
+  int red = (#AA0909);
+  color r = color(red);
   int blue = #0752F0;
   color b = color(blue);
   int coin = #FFDD55;
@@ -22,6 +25,9 @@
   int coin6 = #FFDD60;
   color c6 = color(coin);
   //need to have release
+  boolean ss = false;
+  boolean YY = false;
+  boolean ch = true;
   boolean kp = true;
   boolean cp = true;
   boolean cp2 = true;
@@ -34,6 +40,8 @@
   int sizeY = 5; //5 normal //-5000 gone
   //coin terms
   int cx = 425;
+  int ch5 = (int)(Math.random()*800);
+  int ch6 = 75;
   //integers for police
   int px  = 775;
   int py = 75;
@@ -47,8 +55,6 @@
   int p5y = 75;
   int p6x = 775;
   int p6y = 75;
-  boolean ss = false;
-  boolean YY = false;
   
 void setup()
 {
@@ -72,6 +78,10 @@ void draw()
   stroke(0);
   strokeWeight(1);
   Back();
+  if(ch == true)
+  {
+    Cherry cherry1 = new Cherry(ch5,ch6);
+  }
   if(cp == true)
   {
   Coin coin1 = new Coin(cx-50,p4y);
@@ -148,6 +158,9 @@ void draw()
   // portal things
   if((x>=width-750 && y<=height-550) && (x<=width-650 && y<=height-550))
   {
+    ch = true;
+    ch5 = (int)(Math.random()*800);
+    ch6 = Y;
    y=580; 
    score = score + 5;
    cp = true;
@@ -163,6 +176,9 @@ void draw()
   }
  if((x>=width-150 && y<=height-550) && (x<=width-50 && y<=height-550))
   {
+   ch = true;
+   ch5 =(int)(Math.random()*800);
+   ch6 = Y;
    y=580; 
    score = score + 5;
    cp = true;
@@ -195,16 +211,17 @@ void draw()
     sizeX= -5000;
     sizeY= -5000;
   }
+  color r = get(x,y);
+  if(r == red)
+  {
+   score = score + 50; 
+   ch = false;
+  }
   color c = get(x,y);
   if(c == coin)
   {
     score = score + 10;
     cp = false;
-      //// Create and start the sine oscillator.
-      //pulse = new Pulse(this);
-    
-      ////Start the Pulse Oscillator. 
-      //pulse.play();
   }
   color c2 = get(x,y);
   if(c2 == coin2)
@@ -344,6 +361,7 @@ cx=cx;
       cp4 = true;
       cp5 = true;
       cp6 = true;
+      ch = true;
       YY = false;
     }
     }
@@ -578,7 +596,7 @@ void DariusJr(int x, int y)
   textSize(32);
   text("Start = Press any Key",230,320);
   textSize(32);
-  text("Instructions = hold the I key",185,440); 
+  text("Instructions = Press the I key",185,440); 
   }
   
  void end()
@@ -623,25 +641,55 @@ void DariusJr(int x, int y)
    triangle(r+40,n+20,r+50,n+30,r+40,n+40);
    triangle(r+30,n+50,r+20,n+60,r+10,n+50);
    triangle(r+0,n+40,r-10,n+30,r+0,n+20);
-   text("Do Not Get Hit by the Police",100,250);
+   text("Do Not Get Hit by the Police",100,212.5);
    fill(255,0,0);
     arc(425,245,50,50,PI,TWO_PI,PIE);
     fill(#0752F0);
     arc(425,245,50,50,0,PI,PIE);
     fill(0);
-   text("Or",100,325);
-   text("The Water",100,400);
+   text("Or",100,250);
+   text("The Water",100,290);
    fill(#0752F0);
-   rect(225,375,50,50);
+   rect(225,255,50,50);
    fill(0);
-   text("There are Limitations to the Places you can Go",100,475); 
-   text("Press the Spacebar to Head to the Main Menu",100,512.5);
-   text("(You can Go on Lillypads and Through Portals)",100,550);
-   fill(#24672D);
-   arc(600,500,50,50,0-QUARTER_PI,PI+QUARTER_PI,PIE);
+   text("There are Limitations to the Places you can Go",100,340); 
+   text("Press the Spacebar to Head to the Main Menu",100,365);
+   text("(You can Go on Lillypads and Through Portals)",100,390);
    fill(#95FBFF);
-   rect(650,475,50,50);
-  ellipse(675,500,50,50);
-  ellipse(675,500,30,30);
-  ellipse(675,500,10,10);
+   rect(650,325,50,50);
+  ellipse(675,350,50,50);
+  ellipse(675,350,30,30);
+  ellipse(675,350,10,10);
+   fill(#24672D);
+   arc(600,350,50,50,0-QUARTER_PI,PI+QUARTER_PI,PIE);
+   fill(0);
+   text("Score",100,430);
+   text("Going Through a Portal is 5 Points",100,460);
+   text("Coins are Worth 10 Points",100,490);
+   text("Cherries are Worth 50 points",100,520);
+   fill(#95FBFF);
+   rect(445,435,50,50);
+  ellipse(470,460,50,50);
+  ellipse(470,460,30,30);
+  ellipse(470,460,10,10);
+  
+   stroke(0);
+ strokeWeight(1);
+    fill(#FFDD56);
+    ellipse(535,490,50,50);
+    ellipse(535,490,40,40);
+    rect(535-5,490-10,10,20);
+    
+  stroke(0);
+ strokeWeight(1);
+ fill(#AA0909);
+ ellipse(600,520,50,50);
+ fill(0);
+ ellipse(600-1,520-12,15,10);
+ stroke(#06D326);
+ strokeWeight(10);
+ line(600,520-15,600+10,520-30);
+ fill(#06D326);
+ ellipse(600+10,520-30,10,5);
+ 
  }
