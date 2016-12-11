@@ -1,6 +1,5 @@
-  int Y = 275;
-  //speed for police
-  int speed = 1;
+   //speed for police
+  int speed = 1; // 1
   //score and time
   int score = 0;
   // global
@@ -40,8 +39,8 @@
   int sizeY = 5; //5 normal //-5000 gone
   //coin terms
   int cx = 425;
-  int ch5 = (int)(Math.random()*800);
-  int ch6 = 75;
+  int chx = (int)(Math.random()*800);
+  int chy = (int)(Math.random()*3);
   //integers for police
   int px  = 775;
   int py = 75;
@@ -71,8 +70,6 @@ void draw()
     {
      Inst(); 
     }
-    if(key == 's'||key == 'S' || ss == true)
-    {
       ss = true;
   float time = millis();
   stroke(0);
@@ -80,7 +77,19 @@ void draw()
   Back();
   if(ch == true)
   {
-    Cherry cherry1 = new Cherry(ch5,ch6);
+    if(chy == 0)
+    {
+      chy = 75;
+    }
+    if(chy == 1)
+    {
+      chy = 275;
+    }
+    if(chy == 2)
+    {
+      chy = 375;
+    }
+    Cherry cherry1 = new Cherry(chx,chy);
   }
   if(cp == true)
   {
@@ -159,8 +168,8 @@ void draw()
   if((x>=width-750 && y<=height-550) && (x<=width-650 && y<=height-550))
   {
     ch = true;
-    ch5 = (int)(Math.random()*800);
-    ch6 = Y;
+    chx = (int)(Math.random()*800);
+    chy = (int)(Math.random()*3);
    y=580; 
    score = score + 5;
    cp = true;
@@ -177,8 +186,8 @@ void draw()
  if((x>=width-150 && y<=height-550) && (x<=width-50 && y<=height-550))
   {
    ch = true;
-   ch5 =(int)(Math.random()*800);
-   ch6 = Y;
+   chx =(int)(Math.random()*800);
+   chy = (int)(Math.random()*3);
    y=580; 
    score = score + 5;
    cp = true;
@@ -348,6 +357,7 @@ cx=cx;
     {
     if(key == ' ')
     {
+      //fix space to come to beggining
       sizeX = 5;
       sizeY = 5;
       x=425;
@@ -370,7 +380,8 @@ cx=cx;
       
       if(key == '§'||YY==true)
       {
-        //The Thomas H. Imput
+      //The Thomas H. Imput
+        speed = 9009;
         sizeX = 5;
         sizeY = 5;
         DariusJr(x,y-50);
@@ -379,7 +390,6 @@ cx=cx;
         DariusJr(x,y+50);
         YY=true;
       }
-    }
     }
     }
     }
@@ -458,7 +468,6 @@ void Back()
 }
 void keyReleased()
 {
-  ss = true;
   kp = true;
 }
  
