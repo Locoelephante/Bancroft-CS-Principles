@@ -1,4 +1,4 @@
-   //speed for police
+  //speed for police
   int speed = 1; // 1
   //score and time
   int score = 0;
@@ -358,6 +358,8 @@ cx=cx;
     if(key == ' ')
     {
       //fix space to come to beggining
+      chx = (int)(Math.random()*800);
+      chy = (int)(Math.random()*3);
       sizeX = 5;
       sizeY = 5;
       x=425;
