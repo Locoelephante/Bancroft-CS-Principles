@@ -34,6 +34,7 @@
   boolean cp4 = true;
   boolean cp5 = true;
   boolean cp6 = true;
+  boolean alive = true;
   //size of dariusJr
   int sizeX = 5; //5 normal //-5000 gone
   int sizeY = 5; //5 normal //-5000 gone
@@ -58,7 +59,7 @@
 void setup()
 {
   size(800,600);
-  background(255);
+  background(#F2E7DC);
 }
 
 void draw()
@@ -66,10 +67,6 @@ void draw()
   begin();
   if(keyPressed|| ss == true)
   {
-    if(key == 'i'||key == 'I')
-    {
-     Inst(); 
-    }
       ss = true;
   float time = millis();
   stroke(0);
@@ -124,7 +121,7 @@ void draw()
   PoliceCar auto6 = new PoliceCar(p6x-400,p6y+300);
   
   //The Controls
-  if (keyPressed==true && kp == true)
+  if (keyPressed==true && kp == true && alive == true)
  {
    if(keyCode==UP)
    {
@@ -217,6 +214,7 @@ void draw()
   color b = get(x,y);
   if(b == blue)
   {
+    alive = false;
     sizeX= -5000;
     sizeY= -5000;
   }
@@ -325,20 +323,14 @@ cx=cx;
    if(key == 'M')
    {
      score= 1101101;
-     sizeX = 5;
-     sizeY = 5;
    }
    if(key == 'D')
    {
      score= 1100100;
-     sizeX = 5;
-     sizeY = 5;
    }
    if(key == 'O')
    {
      score=1101111;
-     sizeX = 5;
-     sizeY = 5;
    }
     //DariusJr
   DariusJr(x,y);
@@ -347,6 +339,13 @@ cx=cx;
    if(key == 'i'||key == 'I')
     {
      Inst(); 
+    } 
+  }
+   if(keyPressed)
+  {
+   if(key == 'h'||key == 'H')
+    {
+    HighScore();
     } 
   }
   if(sizeX<5 && sizeY<5)
@@ -375,6 +374,7 @@ cx=cx;
       cp6 = true;
       ch = true;
       YY = false;
+      alive = true;
     }
     }
     if(keyPressed)
@@ -391,6 +391,7 @@ cx=cx;
         DariusJr(x+50,y);
         DariusJr(x,y+50);
         YY=true;
+        alive = true;
       }
     }
     }
@@ -597,28 +598,32 @@ void DariusJr(int x, int y)
   Lil pad21 = new Lil(625,125);
   Lil pad22 = new Lil(625,425);
   Lil pad23 = new Lil(575,425);
-  fill(255);
+  fill(#F2E7DC);
   rect(110,130,600,100);
   rect(175,260,450,100);
   rect(155,390,510,80);
+  rect(165,500,490,70);
   fill(0);
   textSize(72);
   text("Dungeon Escape",120,200);
   textSize(32);
-  text("Start = Press any Key",230,320);
+  text("Start = Press Controls",230,320);
   textSize(32);
   text("Instructions = Press the I key",185,440); 
+  textSize(32);
+  text("HighScores = Press the H key",185,550);
   }
   
  void end()
  {
    background(0);
-   fill(255);
+   fill(#F2E7DC);
    textSize(72);
    text("You are Captured!",100,300);
    textSize(32);
+   text("Score: " + score, 200,360);
    text("To Restart Press the Space Bar",150,400);
-   fill(255);
+   fill(#F2E7DC);
    ellipse(400,480,50,50);
    fill(#FF8408); //orange
     strokeWeight(1);
@@ -641,11 +646,11 @@ void DariusJr(int x, int y)
    int r = 400;
    int n = 140;
    fill(0);
-   background(255);
+   background(#F2E7DC);
    textSize(62);
    text("Instructions",200,100);
    textSize(20);
-   text("(Press any Key to Escape)",500,137.5);
+   text("(Press Controls to Escape)",500,137.5);
    text("Use the Arrow Keys to Move",100,175);
    //arrow key picture
    triangle(r+20,n+0,r+10,n+10,r+30,n+10);
@@ -703,4 +708,47 @@ void DariusJr(int x, int y)
  fill(#06D326);
  ellipse(600+10,520-30,10,5);
  
+ }
+ void HighScore()
+ {
+   fill(0);
+   background(#F2E7DC);
+   textSize(62);
+   text("HighScores",200,100);
+   textSize(20);
+   text("(Press Contols to Escape)",500,137.5);
+   textSize(20);
+   text("1: MDO / Score: 665", 100,175);
+   text("2: Initials / Score: #", 100,200);
+   text("3: Initials / Score: #", 100,225);
+   text("4: Initials / Score: #", 100,250);
+   text("5: Initials / Score: #", 100,275);
+   text("6: Initials / Score: #", 100,300);
+   text("7: Initials / Score: #", 100,325);
+   text("8: Initials / Score: #", 100,350);
+   text("9: Initials / Score: #", 100,375);
+   text("10: Initials / Score: #", 100,400);
+   text("11: Initials / Score: #", 100,425);
+   text("12: Initials / Score: #", 100,450);
+   text("13: Initials / Score: #", 100,475);
+   text("14: Initials / Score: #", 100,500);
+   text("15: Initials / Score: #", 100,525);
+   
+   text("16: Initials / Score: #", 400,175);
+   text("17: Initials / Score: #", 400,200);
+   text("18: Initials / Score: #", 400,225);
+   text("19: Initials / Score: #", 400,250);
+   text("20: Initials / Score: #", 400,275);
+   text("21: Initials / Score: #", 400,300);
+   text("22: Initials / Score: #", 400,325);
+   text("23: Initials / Score: #", 400,350);
+   text("24: Initials / Score: #", 400,375);
+   text("25: Initials / Score: #", 400,400);
+   text("25: Initials / Score: #", 400,425);
+   text("27: Initials / Score: #", 400,450);
+   text("28: Initials / Score: #", 400,475);
+   text("29: Initials / Score: #", 400,500);
+   text("30: Initials / Score: #", 400,525);
+   
+   
  }
