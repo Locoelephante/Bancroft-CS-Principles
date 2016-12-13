@@ -1,4 +1,4 @@
-  //speed for police
+   //speed for police
   int speed = 1; // 1
   //score and time
   int score = 0;
@@ -7,7 +7,7 @@
   int y = 580;
   int d = 50;
   //color dimentions
-  int red = (#AA0909);
+  int red = #AA0909;
   color r = color(red);
   int blue = #0752F0;
   color b = color(blue);
@@ -28,6 +28,7 @@
   boolean YY = false;
   boolean ch = true;
   boolean kp = true;
+  boolean kr = true;
   boolean cp = true;
   boolean cp2 = true;
   boolean cp3 = true;
@@ -35,6 +36,7 @@
   boolean cp5 = true;
   boolean cp6 = true;
   boolean alive = true;
+  boolean CHEAT = false;
   //size of dariusJr
   int sizeX = 5; //5 normal //-5000 gone
   int sizeY = 5; //5 normal //-5000 gone
@@ -323,14 +325,17 @@ cx=cx;
    if(key == 'M')
    {
      score= 1101101;
+     CHEAT = true;
    }
    if(key == 'D')
    {
      score= 1100100;
+     CHEAT = true;
    }
    if(key == 'O')
    {
      score=1101111;
+     CHEAT = true;
    }
     //DariusJr
   DariusJr(x,y);
@@ -350,12 +355,19 @@ cx=cx;
   }
   if(sizeX<5 && sizeY<5)
     {
+      if(CHEAT == true)
+      {
+       score = 0; 
+      }
       end();
     }
     if(keyPressed)
     {
     if(key == ' ')
     {
+      begin();
+      if(key == ' ' && kr == true)
+      {
       //fix space to come to beggining
       chx = (int)(Math.random()*800);
       chy = (int)(Math.random()*3);
@@ -375,6 +387,8 @@ cx=cx;
       ch = true;
       YY = false;
       alive = true;
+      kr = false;
+      }
     }
     }
     if(keyPressed)
@@ -392,6 +406,7 @@ cx=cx;
         DariusJr(x,y+50);
         YY=true;
         alive = true;
+        CHEAT = true;
       }
     }
     }
@@ -472,6 +487,7 @@ void Back()
 void keyReleased()
 {
   kp = true;
+  kr = true;
 }
  
 
@@ -719,8 +735,8 @@ void DariusJr(int x, int y)
    text("(Press Contols to Escape)",500,137.5);
    textSize(20);
    text("1: MDO / Score: 665", 100,175);
-   text("2: Initials / Score: #", 100,200);
-   text("3: Initials / Score: #", 100,225);
+   text("2: PHI / Score: 490", 100,200);
+   text("3: VMO / Score: 65", 100,225);
    text("4: Initials / Score: #", 100,250);
    text("5: Initials / Score: #", 100,275);
    text("6: Initials / Score: #", 100,300);
