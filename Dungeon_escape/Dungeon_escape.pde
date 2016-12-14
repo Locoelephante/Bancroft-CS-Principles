@@ -734,12 +734,11 @@ void DariusJr(int x, int y)
    text("HighScores",200,100);
    textSize(20);
    text("(Press Contols to Escape)",500,137.5);
-   textSize(20);
-   text("1: MDO / Score: 895", 100,175);
+    text("1: MDO / Score: 895", 100,175);
    text("2: TOM / Score: 570", 100,200);
-   text("3: PHI / Score: 490", 100,225);
-   text("4: DZ / Score: 480", 100,250);
-   text("5: TRS / Score: 335", 100,275);
+   text("3: TRS / Score: 530", 100,225);
+   text("4: PHI / Score: 490", 100,250);
+   text("5: DZ / Score: 480", 100,275);
    text("6: BPD / Score: 140", 100,300);
    text("7: AC / Score: 135", 100,325);
    text("8: VMO / Score: 65", 100,350);
