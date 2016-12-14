@@ -1,4 +1,4 @@
-   //speed for police
+    //speed for police
   int speed = 1; // 1
   //score and time
   int score = 0;
@@ -388,6 +388,7 @@ cx=cx;
       YY = false;
       alive = true;
       kr = false;
+      CHEAT = false;
       }
     }
     }
@@ -734,7 +735,7 @@ void DariusJr(int x, int y)
    textSize(20);
    text("(Press Contols to Escape)",500,137.5);
    textSize(20);
-    text("1: MDO / Score: 665", 100,175);
+   text("1: MDO / Score: 895", 100,175);
    text("2: TOM / Score: 570", 100,200);
    text("3: PHI / Score: 490", 100,225);
    text("4: DZ / Score: 480", 100,250);
