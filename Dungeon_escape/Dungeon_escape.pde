@@ -770,6 +770,10 @@ void DariusJr(int x, int y)
    
  }
  */
+ 
+ 
+ 
+ 
   //speed for police
   int speed = 2; // 1
   //score and time
